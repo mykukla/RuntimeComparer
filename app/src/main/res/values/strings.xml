@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Runtime Calculator</string>
+    <string name="run">Run</string>
+    <string name="array_length">Array Length</string>
+</resources>
