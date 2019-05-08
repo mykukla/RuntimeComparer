@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val runbutton = findViewById<Button>(R.id.runButton)
-        val seekBar = findViewById<SeekBar>(R.id.seekBar)
         val arrayLengthinput = findViewById<EditText>(R.id.arrayLengthInput)
         val resultsTextView = findViewById<TextView>(R.id.resultsTextView)
         val resultsTextView1 = findViewById<TextView>(R.id.resultTextview1)
@@ -27,41 +26,26 @@ class MainActivity : AppCompatActivity() {
 
         runbutton.setOnClickListener {
         val content = arrayLengthinput.getText().toString()
-            textView.setText(content)
 
-            val randomInt = Random()
 
             if (arrayLengthinput != null){
+                val randomInt = Random()
                 val array = IntArray(content.toInt())
                 for (i in array.indices) {
                     array[i] = Math.abs(randomInt.nextInt()) % 100
                 }
-                resultsTextView.text = "Insertion Sort O(n²): " + aCompare.insertionSort(array).toString()
-                resultTextview1.text = "Bubble Sort O(n²): " + aCompare.bubbleSort(array).toString()
-                resultTextView2.text = "Selection Sort O(n²):  " + aCompare.selectionSort(array).toString()
-                resultTextView3.text = "Merge Sort O(nLog(n)): " + aCompare.mergeSort(array, 0, array.size - 1).toString()
 
-            } else {
-                val array = IntArray(seekBar.progress * 100)
-                for (i in array.indices) {
-                    array[i] = Math.abs(randomInt.nextInt()) % 100
-                }
+                resultsTextView.text = "Insertion Sort O(n²): " + (aCompare.insertionSort(array) / 100000 ).toString()
+                resultTextview1.text = "Bubble Sort O(n²): " + (aCompare.bubbleSort(array) / 100000 ).toString()
+                resultTextView2.text = "Selection Sort O(n²):  " + (aCompare.selectionSort(array) / 1000000).toString()
+                resultTextView3.text = "Merge Sort O(nLog(n)): " + (aCompare.mergeSort(array, 0, array.size - 1) / 100000 ).toString()
 
-                resultsTextView.text = "Insertion Sort O(n²): " + aCompare.insertionSort(array).toString()
-                resultTextview1.text = "Bubble Sort O(n²): " + aCompare.bubbleSort(array).toString()
-                resultTextView2.text = "Selection Sort O(n²):  " + aCompare.selectionSort(array).toString()
-                resultTextView3.text = "Merge Sort O(nLog(n)): " + aCompare.mergeSort(array, 0, array.size - 1).toString()
-
+            }else {
+                resultsTextView.text = "You"
+                resultTextview1.text = "Forgot to "
+                resultTextView2.text = "Enter A number  "
+                resultTextView3.text = "Below "
             }
-
-
-
-
-
-
-
-
-
         }
     }
 }

@@ -103,13 +103,15 @@ public class aCompare {
 
         if (l < r) {
             beginTime = System.nanoTime();
-            endTime = System.nanoTime();
-            totalRuntime = (endTime - beginTime);
+
             int m = (l+r)/2;
             mergeSort(array, l, m);
             mergeSort(array , m+1, r);
             merge(array, l, m, r);
+
         }
+        endTime = System.nanoTime();
+        totalRuntime = (endTime - beginTime);
         return totalRuntime;
     }
 
