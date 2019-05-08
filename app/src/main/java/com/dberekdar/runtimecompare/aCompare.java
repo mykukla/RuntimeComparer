@@ -58,13 +58,62 @@ public class aCompare {
         return totalRuntime;
     }
 
-    public static long mergeSort(int[] array){
-        long beginTime = System.nanoTime();
-        long endTime = System.nanoTime();
-        long totalRuntime = (endTime - beginTime); //Calculating runtime of the insertion sort algorithm;
-        return totalRuntime;
+    static void merge(int array[], int l, int m, int r) {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+        int L[] = new int [n1];
+        int R[] = new int [n2];
 
+        for (int i=0; i<n1; ++i)
+            L[i] = array[l + i];
+        for (int j=0; j<n2; ++j)
+            R[j] = array[m + 1+ j];
+
+        int i = 0, j = 0;
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j])
+            {
+                array[k] = L[i];
+                i++;
+            }
+            else {
+                array[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            array[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            array[k] = R[j];
+            j++;
+            k++;
+        }
     }
+    static long  mergeSort(int array[], int l, int r) {
+        long beginTime = 0;
+        long totalRuntime = 0;
+        long endTime = 0;
+
+        if (l < r) {
+            beginTime = System.nanoTime();
+            endTime = System.nanoTime();
+            totalRuntime = (endTime - beginTime);
+            int m = (l+r)/2;
+            mergeSort(array, l, m);
+            mergeSort(array , m+1, r);
+            merge(array, l, m, r);
+        }
+        return totalRuntime;
+    }
+
+
 
 
 }
