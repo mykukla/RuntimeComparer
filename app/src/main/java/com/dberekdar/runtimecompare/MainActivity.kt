@@ -35,10 +35,10 @@ class MainActivity : AppCompatActivity() {
                     array[i] = Math.abs(randomInt.nextInt()) % 100
                 }
 
-                resultsTextView.text = "Insertion Sort O(n²): " + (aCompare.insertionSort(array) / 100000 ).toString()
-                resultTextview1.text = "Bubble Sort O(n²): " + (aCompare.bubbleSort(array) / 100000 ).toString()
-                resultTextView2.text = "Selection Sort O(n²):  " + (aCompare.selectionSort(array) / 1000000).toString()
-                resultTextView3.text = "Merge Sort O(nLog(n)): " + (aCompare.mergeSort(array, 0, array.size - 1) / 100000 ).toString()
+                resultsTextView.text = "Insertion Sort O(n²):     " + (aCompare.insertionSort(array) / 100000 ).toString()
+                resultTextview1.text = "Bubble Sort O(n²):        " + (aCompare.bubbleSort(array) / 100000 ).toString()
+                resultTextView2.text = "Selection Sort O(n²):     " + (aCompare.selectionSort(array) / 1000000).toString()
+                resultTextView3.text = "Merge Sort O(nLog(n)):    " + (aCompare.mergeSort(array, 0, array.size - 1) / 100000 ).toString()
 
             }else {
                 resultsTextView.text = "You"
